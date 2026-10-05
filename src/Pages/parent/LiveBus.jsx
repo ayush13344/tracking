@@ -1,496 +1,480 @@
 import {
-  BusFront,
-  CheckCircle2,
-  Clock3,
-  Compass,
-  MapPin,
-  Navigation,
-  Phone,
-  Route,
-  ShieldCheck,
-  UserRound,
-  Users,
-  Zap,
+Bus,
+CheckCircle2,
+Clock3,
+Gauge,
+MapPin,
+Navigation,
+Phone,
+ShieldCheck,
+UserRound,
 } from "lucide-react";
 
-import Button from "../../components/ui/Button";
-
 const LiveBus = () => {
-  const stops = [
-    {
-      name: "Central Bus Depot",
-      time: "07:35 AM",
-      status: "completed",
-    },
-    {
-      name: "Green Park",
-      time: "07:52 AM",
-      status: "completed",
-      yours: true,
-    },
-    {
-      name: "City Center",
-      time: "08:15 AM",
-      status: "current",
-    },
-    {
-      name: "University Road",
-      time: "08:32 AM",
-      status: "upcoming",
-    },
-    {
-      name: "EduTrack Public School",
-      time: "08:45 AM",
-      status: "upcoming",
-    },
-  ];
+const stops = [
+{
+number: 1,
+name: "Shivaji Nagar",
+time: "07:15 AM",
+status: "completed",
+},
+{
+number: 2,
+name: "MP Nagar",
+time: "07:25 AM",
+status: "completed",
+},
+{
+number: 3,
+name: "Arera Colony",
+time: "07:35 AM",
+status: "current",
+},
+{
+number: 4,
+name: "Bawadia Kalan",
+time: "07:45 AM",
+status: "upcoming",
+},
+{
+number: 5,
+name: "School Campus",
+time: "08:00 AM",
+status: "upcoming",
+},
+];
 
-  return (
-    <div className="parent-page live-bus-page">
-      {/* Page Header */}
-      <div className="page-header">
-        <div>
-          <span className="page-eyebrow">Parent Portal</span>
+return ( <div className="parent-page live-bus-page">
+{/* Page Header */} <div className="page-header"> <div> <span className="page-eyebrow">LIVE TRACKING</span>
 
-          <h1>Live Bus Tracking</h1>
+      <h1>Live Bus</h1>
 
-          <p>
-            Track your child's bus location and journey progress
-            in real time.
-          </p>
-        </div>
+      <p>
+        Track your child's school bus and view the current journey status.
+      </p>
+    </div>
 
-        <div className="page-header-actions">
-          <Button
-            variant="secondary"
-            icon={Phone}
-          >
-            Contact Driver
-          </Button>
+    <div className="page-header-actions">
+      <button type="button" className="secondary-button">
+        <Navigation size={16} />
+        Refresh Location
+      </button>
+    </div>
+  </div>
 
-          <Button
-            variant="primary"
-            icon={Navigation}
-          >
-            Refresh Location
-          </Button>
-        </div>
+  {/* Live Status Banner */}
+  <div className="live-bus-status-banner">
+    <div className="live-bus-status-left">
+      <div className="live-bus-pulse-icon">
+        <Bus size={22} />
       </div>
 
-      {/* Live Status Banner */}
-      <section className="live-bus-status-banner">
-        <div className="live-bus-status-left">
-          <div className="live-bus-pulse-icon">
-            <BusFront size={25} />
-            <span></span>
-          </div>
+      <div>
+        <strong>Bus BUS-102 is currently moving</strong>
 
-          <div>
-            <span>Live Tracking Active</span>
+        <span>
+          Last updated just now • Route A • Aarav Sharma
+        </span>
+      </div>
+    </div>
 
-            <h2>BUS-102 is on Route A</h2>
+    <div className="live-bus-status-right">
+      <span className="live-location-status">
+        <span></span>
+        Live Location
+      </span>
 
-            <p>
-              Last location update: 08:24 AM · Moving towards
-              University Road
-            </p>
-          </div>
+      <strong>07:38 AM</strong>
+    </div>
+  </div>
+
+  {/* Main Grid */}
+  <div className="live-bus-main-grid">
+    {/* Live Map */}
+    <section className="dashboard-panel live-map-panel">
+      <div className="panel-header live-map-header">
+        <div>
+          <h3>Bus Location</h3>
+          <span>Real-time journey map</span>
         </div>
 
-        <div className="live-bus-status-right">
-          <div className="live-location-status">
-            <span></span>
-            Live
-          </div>
-        </div>
-      </section>
-
-      {/* Main Tracking Area */}
-      <section className="live-bus-main-grid">
-        {/* Map Area */}
-        <div className="live-map-panel">
-          <div className="live-map-header">
-            <div>
-              <span>Current Location</span>
-              <h2>BUS-102</h2>
-            </div>
-
-            <div className="map-header-actions">
-              <button type="button" title="Compass">
-                <Compass size={17} />
-              </button>
-
-              <button type="button" title="Current location">
-                <Navigation size={17} />
-              </button>
-            </div>
-          </div>
-
-          {/* Frontend Map Placeholder */}
-          <div className="live-map-area">
-            <div className="map-grid-lines"></div>
-
-            <div className="map-road road-one"></div>
-            <div className="map-road road-two"></div>
-            <div className="map-road road-three"></div>
-            <div className="map-road road-four"></div>
-
-            <div className="map-area-label label-one">
-              City Center
-            </div>
-
-            <div className="map-area-label label-two">
-              University Road
-            </div>
-
-            <div className="map-area-label label-three">
-              Green Park
-            </div>
-
-            <div className="map-school-marker">
-              <div>
-                <MapPin size={20} />
-              </div>
-
-              <span>EduTrack School</span>
-            </div>
-
-            <div className="map-pickup-marker">
-              <div>
-                <MapPin size={19} />
-              </div>
-
-              <span>Your Pickup</span>
-            </div>
-
-            <div className="map-bus-route">
-              <span className="route-line-segment segment-one"></span>
-              <span className="route-line-segment segment-two"></span>
-              <span className="route-line-segment segment-three"></span>
-            </div>
-
-            <div className="map-bus-marker">
-              <div className="map-bus-marker-icon">
-                <BusFront size={21} />
-              </div>
-
-              <div className="map-bus-marker-label">
-                <strong>BUS-102</strong>
-                <span>Moving</span>
-              </div>
-            </div>
-
-            <div className="map-current-location">
-              <span></span>
-            </div>
-
-            <div className="map-overlay-card">
-              <div className="map-overlay-icon">
-                <Navigation size={17} />
-              </div>
-
-              <div>
-                <span>Current Location</span>
-                <strong>City Center</strong>
-              </div>
-
-              <span className="map-speed">
-                28 km/h
-              </span>
-            </div>
-
-            <div className="map-provider-note">
-              Live map integration
-            </div>
-          </div>
-
-          <div className="live-map-footer">
-            <div>
-              <Zap size={16} />
-              <span>Live location</span>
-            </div>
-
-            <span>
-              Updated 2 minutes ago
-            </span>
-          </div>
-        </div>
-
-        {/* Journey Information */}
-        <div className="live-bus-info-panel">
-          <div className="panel-header">
-            <div>
-              <span>Journey Details</span>
-              <h2>Route A</h2>
-            </div>
-
-            <span className="live-indicator">
-              <span></span>
-              Live
-            </span>
-          </div>
-
-          <div className="live-bus-details">
-            <div className="live-detail-card">
-              <div className="live-detail-icon live-purple">
-                <BusFront size={19} />
-              </div>
-
-              <div>
-                <span>Bus</span>
-                <strong>BUS-102</strong>
-              </div>
-            </div>
-
-            <div className="live-detail-card">
-              <div className="live-detail-icon live-blue">
-                <Navigation size={19} />
-              </div>
-
-              <div>
-                <span>Current Stop</span>
-                <strong>City Center</strong>
-              </div>
-            </div>
-
-            <div className="live-detail-card">
-              <div className="live-detail-icon live-mint">
-                <Clock3 size={19} />
-              </div>
-
-              <div>
-                <span>School ETA</span>
-                <strong>08:45 AM</strong>
-              </div>
-            </div>
-
-            <div className="live-detail-card">
-              <div className="live-detail-icon live-orange">
-                <Users size={19} />
-              </div>
-
-              <div>
-                <span>Students</span>
-                <strong>28 / 32</strong>
-              </div>
-            </div>
-          </div>
-
-          <div className="live-next-stop">
-            <div className="live-next-stop-icon">
-              <MapPin size={20} />
-            </div>
-
-            <div>
-              <span>Next Stop</span>
-              <strong>University Road</strong>
-              <small>Expected at 08:32 AM</small>
-            </div>
-
-            <Navigation size={18} />
-          </div>
-
-          <div className="live-bus-driver">
-            <div className="live-driver-avatar">
-              <UserRound size={23} />
-            </div>
-
-            <div>
-              <span>Driver</span>
-              <strong>Rahul Sharma</strong>
-
-              <small>
-                <ShieldCheck size={13} />
-                Verified Driver
-              </small>
-            </div>
-
-            <button
-              type="button"
-              title="Contact driver"
-            >
-              <Phone size={17} />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Route Stops */}
-      <section className="dashboard-panel live-stops-panel">
-        <div className="panel-header">
-          <div>
-            <span>Route Progress</span>
-            <h2>All Stops</h2>
-          </div>
-
-          <span className="route-progress-text">
-            2 completed · 3 remaining
-          </span>
-        </div>
-
-        <div className="live-stops-grid">
-          {stops.map((stop, index) => (
-            <div
-              className={`live-stop-card live-stop-${stop.status} ${
-                stop.yours ? "live-stop-yours" : ""
-              }`}
-              key={stop.name}
-            >
-              <div className="live-stop-number">
-                {stop.status === "completed" ? (
-                  <CheckCircle2 size={18} />
-                ) : stop.status === "current" ? (
-                  <Navigation size={18} />
-                ) : (
-                  index + 1
-                )}
-              </div>
-
-              <div className="live-stop-content">
-                <span>
-                  {stop.yours
-                    ? "Your Pickup"
-                    : stop.status === "current"
-                    ? "Current Stop"
-                    : stop.status === "completed"
-                    ? "Completed"
-                    : "Upcoming"}
-                </span>
-
-                <strong>{stop.name}</strong>
-
-                <small>{stop.time}</small>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Driver + Safety */}
-      <section className="dashboard-two-column">
-        <div className="dashboard-panel">
-          <div className="panel-header">
-            <div>
-              <span>Transportation Team</span>
-              <h2>Driver Information</h2>
-            </div>
-
-            <ShieldCheck size={20} />
-          </div>
-
-          <div className="live-driver-large">
-            <div className="live-driver-large-avatar">
-              <UserRound size={31} />
-            </div>
-
-            <div className="live-driver-large-info">
-              <h3>Rahul Sharma</h3>
-              <span>Assigned Driver · BUS-102</span>
-
-              <div>
-                <ShieldCheck size={14} />
-                Verified Driver
-              </div>
-            </div>
-
-            <button type="button">
-              <Phone size={18} />
-              Contact
-            </button>
-          </div>
-
-          <div className="live-driver-stats">
-            <div>
-              <BusFront size={17} />
-              <span>Bus</span>
-              <strong>BUS-102</strong>
-            </div>
-
-            <div>
-              <Route size={17} />
-              <span>Route</span>
-              <strong>Route A</strong>
-            </div>
-
-            <div>
-              <Users size={17} />
-              <span>Students</span>
-              <strong>32</strong>
-            </div>
-          </div>
-        </div>
-
-        <div className="dashboard-panel live-safety-panel">
-          <div className="panel-header">
-            <div>
-              <span>Safety</span>
-              <h2>Journey Status</h2>
-            </div>
-
-            <ShieldCheck size={21} />
-          </div>
-
-          <div className="live-safety-main">
-            <div className="live-safety-check">
-              <CheckCircle2 size={29} />
-            </div>
-
-            <div>
-              <h3>Journey is safe</h3>
-
-              <p>
-                No emergency alerts or safety issues have been
-                reported for this journey.
-              </p>
-            </div>
-          </div>
-
-          <div className="live-safety-list">
-            <div>
-              <CheckCircle2 size={15} />
-              <span>Bus location available</span>
-            </div>
-
-            <div>
-              <CheckCircle2 size={15} />
-              <span>Driver verified</span>
-            </div>
-
-            <div>
-              <CheckCircle2 size={15} />
-              <span>Journey is on schedule</span>
-            </div>
-          </div>
+        <div className="map-header-actions">
+          <button
+            type="button"
+            className="map-control-button"
+          >
+            +
+          </button>
 
           <button
             type="button"
-            className="live-emergency-button"
+            className="map-control-button"
           >
-            <Phone size={17} />
-            Emergency Contact
+            −
           </button>
         </div>
-      </section>
+      </div>
 
-      {/* Footer Notice */}
-      <div className="parent-safety-notice">
-        <div className="parent-safety-icon">
-          <Navigation size={20} />
+      <div className="live-map-area">
+        <div className="map-grid-lines"></div>
+
+        {/* Roads */}
+        <div className="map-road road-one"></div>
+        <div className="map-road road-two"></div>
+        <div className="map-road road-three"></div>
+        <div className="map-road road-four"></div>
+
+        {/* Area Labels */}
+        <span className="map-area-label label-one">
+          Arera Colony
+        </span>
+
+        <span className="map-area-label label-two">
+          MP Nagar
+        </span>
+
+        <span className="map-area-label label-three">
+          Bawadia Kalan
+        </span>
+
+        {/* School Marker */}
+        <div className="map-school-marker">
+          <div>
+            <MapPin size={16} />
+          </div>
+
+          <span>School</span>
+        </div>
+
+        {/* Pickup Marker */}
+        <div className="map-pickup-marker">
+          <div>
+            <MapPin size={15} />
+          </div>
+
+          <span>Your Stop</span>
+        </div>
+
+        {/* Bus Route */}
+        <div className="map-bus-route">
+          <div className="route-line-segment segment-one"></div>
+          <div className="route-line-segment segment-two"></div>
+          <div className="route-line-segment segment-three"></div>
+        </div>
+
+        {/* Bus Marker */}
+        <div className="map-bus-marker">
+          <div className="map-bus-marker-icon">
+            <Bus size={20} />
+          </div>
+
+          <div className="map-bus-marker-label">
+            BUS-102
+          </div>
+        </div>
+
+        {/* Current Location */}
+        <div className="map-current-location">
+          <span></span>
+        </div>
+
+        {/* Speed Overlay */}
+        <div className="map-overlay-card">
+          <div className="map-overlay-icon">
+            <Gauge size={17} />
+          </div>
+
+          <div>
+            <span>Current Speed</span>
+            <strong>32 km/h</strong>
+          </div>
+        </div>
+
+        <div className="map-provider-note">
+          Live map preview
+        </div>
+      </div>
+
+      {/* Map Legend */}
+      <div className="live-map-footer">
+        <div>
+          <span className="legend-dot bus-dot"></span>
+          Bus
         </div>
 
         <div>
-          <strong>Live location is updated automatically</strong>
-
-          <p>
-            Location accuracy may vary depending on the driver's
-            device and network connection.
-          </p>
+          <span className="legend-dot pickup-dot"></span>
+          Pickup Stop
         </div>
 
-        <CheckCircle2 size={19} />
+        <div>
+          <span className="legend-dot school-dot"></span>
+          School
+        </div>
       </div>
+    </section>
+
+    {/* Bus Information */}
+    <section className="live-bus-info-panel">
+      <div className="live-bus-details">
+        <div className="live-detail-card">
+          <div className="live-detail-icon live-purple">
+            <Bus size={20} />
+          </div>
+
+          <div>
+            <span>Bus Number</span>
+            <strong>BUS-102</strong>
+          </div>
+        </div>
+
+        <div className="live-detail-card">
+          <div className="live-detail-icon live-blue">
+            <Clock3 size={20} />
+          </div>
+
+          <div>
+            <span>Estimated Arrival</span>
+            <strong>07:45 AM</strong>
+          </div>
+        </div>
+
+        <div className="live-detail-card">
+          <div className="live-detail-icon live-mint">
+            <Gauge size={20} />
+          </div>
+
+          <div>
+            <span>Current Speed</span>
+            <strong>32 km/h</strong>
+          </div>
+        </div>
+
+        <div className="live-detail-card">
+          <div className="live-detail-icon live-orange">
+            <Navigation size={20} />
+          </div>
+
+          <div>
+            <span>Distance</span>
+            <strong>3.2 km</strong>
+          </div>
+        </div>
+      </div>
+
+      {/* Next Stop */}
+      <div className="live-next-stop">
+        <div className="live-next-stop-icon">
+          <MapPin size={19} />
+        </div>
+
+        <div>
+          <span>Next Stop</span>
+          <strong>Bawadia Kalan</strong>
+          <small>Expected at 07:45 AM</small>
+        </div>
+      </div>
+
+      {/* Driver Quick Info */}
+      <div className="live-bus-driver">
+        <div className="live-driver-avatar">
+          <UserRound size={22} />
+        </div>
+
+        <div>
+          <span>Driver</span>
+          <strong>Rahul Sharma</strong>
+          <small>Verified Driver</small>
+        </div>
+
+        <button
+          type="button"
+          className="icon-button"
+          title="Call Driver"
+        >
+          <Phone size={18} />
+        </button>
+      </div>
+    </section>
+  </div>
+
+  {/* Route Stops */}
+  <section className="dashboard-panel live-stops-panel">
+    <div className="panel-header">
+      <div>
+        <h3>Route Stops</h3>
+        <span>Today's route progress</span>
+      </div>
+
+      <strong className="route-progress-text">
+        3 of 5 stops
+      </strong>
     </div>
-  );
+
+    <div className="live-stops-grid">
+      {stops.map((stop) => (
+        <div
+          key={stop.number}
+          className={`live-stop-card live-stop-${stop.status}`}
+        >
+          <div className="live-stop-number">
+            {stop.status === "completed" ? (
+              <CheckCircle2 size={17} />
+            ) : (
+              stop.number
+            )}
+          </div>
+
+          <div className="live-stop-content">
+            <strong>{stop.name}</strong>
+
+            <span>{stop.time}</span>
+
+            {stop.status === "completed" && (
+              <small>Completed</small>
+            )}
+
+            {stop.status === "current" && (
+              <small>Bus is here</small>
+            )}
+
+            {stop.status === "upcoming" && (
+              <small>Upcoming</small>
+            )}
+          </div>
+
+          {stop.status === "current" && (
+            <span className="live-stop-yours">
+              Current
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Driver + Safety */}
+  <div className="live-bus-bottom-grid">
+    {/* Driver Information */}
+    <section className="dashboard-panel live-driver-large">
+      <div className="panel-header">
+        <div>
+          <h3>Driver Information</h3>
+          <span>Assigned driver for today's journey</span>
+        </div>
+      </div>
+
+      <div className="live-driver-large-content">
+        <div className="live-driver-large-avatar">
+          <UserRound size={30} />
+        </div>
+
+        <div className="live-driver-large-info">
+          <strong>Rahul Sharma</strong>
+
+          <span>
+            Assigned Driver · BUS-102
+          </span>
+
+          <div className="driver-verified-badge">
+            <CheckCircle2 size={13} />
+            Verified Driver
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="secondary-button"
+        >
+          <Phone size={16} />
+          Contact
+        </button>
+      </div>
+
+      {/* Driver Stats */}
+      <div className="driver-info-stats">
+        <div className="driver-info-stat">
+          <span>Bus</span>
+          <strong>BUS-102</strong>
+        </div>
+
+        <div className="driver-info-stat">
+          <span>Route</span>
+          <strong>Route A</strong>
+        </div>
+
+        <div className="driver-info-stat">
+          <span>Students</span>
+          <strong>32</strong>
+        </div>
+      </div>
+    </section>
+
+    {/* Safety */}
+    <section className="dashboard-panel live-safety-panel">
+      <div className="panel-header">
+        <div>
+          <h3>Safety Status</h3>
+          <span>Current journey safety checks</span>
+        </div>
+      </div>
+
+      <div className="live-safety-main">
+        <div className="live-safety-check">
+          <ShieldCheck size={24} />
+        </div>
+
+        <div>
+          <strong>All systems normal</strong>
+          <span>No safety alerts reported</span>
+        </div>
+      </div>
+
+      <div className="live-safety-list">
+        <div>
+          <CheckCircle2 size={16} />
+          GPS tracking active
+        </div>
+
+        <div>
+          <CheckCircle2 size={16} />
+          Driver verified
+        </div>
+
+        <div>
+          <CheckCircle2 size={16} />
+          Route on schedule
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className="live-emergency-button"
+      >
+        <ShieldCheck size={17} />
+        Emergency Assistance
+      </button>
+    </section>
+  </div>
+
+  {/* Safety Notice */}
+  <div className="parent-safety-notice">
+    <div className="parent-safety-icon">
+      <ShieldCheck size={18} />
+    </div>
+
+    <div>
+      <strong>Child Safety First</strong>
+
+      <p>
+        Location information is provided only for the
+        registered parent/guardian. Please contact the
+        school in case of any emergency.
+      </p>
+    </div>
+  </div>
+</div>
+);
 };
 
 export default LiveBus;
