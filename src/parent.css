@@ -5930,3 +5930,901 @@ grid-template-columns: 1fr;
     display: none;
   }
 }
+
+/* =========================================================
+TODAY JOURNEY PAGE
+========================================================= */
+
+.today-journey-page {
+display: flex;
+flex-direction: column;
+gap: 22px;
+}
+
+/* ---------------------------------------------------------
+HEADER
+--------------------------------------------------------- */
+
+.today-journey-page .page-header {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+gap: 20px;
+margin-bottom: 2px;
+}
+
+.today-journey-page .page-header-actions {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 10px;
+flex-wrap: wrap;
+}
+
+/* Make the Button component look premium */
+.today-journey-page .page-header-actions button {
+min-height: 44px;
+border-radius: 12px;
+padding: 0 17px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+font-size: 13px;
+font-weight: 700;
+border: 1px solid transparent;
+cursor: pointer;
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease,
+background 0.2s ease,
+border-color 0.2s ease;
+}
+
+.today-journey-page .page-header-actions button:hover {
+transform: translateY(-2px);
+}
+
+/* Contact Driver */
+.today-journey-page
+.page-header-actions
+button[class*="secondary"] {
+background: #ffffff;
+color: #5b4bb7;
+border-color: #ddd6fe;
+box-shadow: 0 5px 16px rgba(91, 75, 183, 0.08);
+}
+
+.today-journey-page
+.page-header-actions
+button[class*="secondary"]:hover {
+background: #f7f4ff;
+border-color: #c4b5fd;
+box-shadow: 0 8px 20px rgba(91, 75, 183, 0.14);
+}
+
+/* Track Live */
+.today-journey-page
+.page-header-actions
+button[class*="primary"] {
+background: linear-gradient(135deg, #7c6ee6, #6757d9);
+color: #ffffff;
+border-color: #6757d9;
+box-shadow: 0 7px 18px rgba(103, 87, 217, 0.25);
+}
+
+.today-journey-page
+.page-header-actions
+button[class*="primary"]:hover {
+background: linear-gradient(135deg, #7062df, #5c4ccc);
+box-shadow: 0 10px 23px rgba(103, 87, 217, 0.32);
+}
+
+/* ---------------------------------------------------------
+JOURNEY STATUS SECTION
+--------------------------------------------------------- */
+
+.today-journey-page .dashboard-section {
+background: #ffffff;
+border: 1px solid #ebe8f5;
+border-radius: 18px;
+padding: 22px;
+box-shadow: 0 8px 25px rgba(44, 35, 84, 0.05);
+}
+
+.today-journey-page .section-heading {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 15px;
+margin-bottom: 18px;
+}
+
+.today-journey-page .section-heading > div {
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+
+.today-journey-page .section-heading span:first-child {
+color: #817b98;
+font-size: 12px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.07em;
+}
+
+.today-journey-page .section-heading h2 {
+margin: 0;
+color: #29253d;
+font-size: 21px;
+font-weight: 750;
+}
+
+.today-journey-page .live-indicator {
+display: inline-flex;
+align-items: center;
+gap: 7px;
+padding: 8px 12px;
+border-radius: 999px;
+background: #ecfdf5;
+color: #16845a;
+font-size: 12px;
+font-weight: 700;
+white-space: nowrap;
+}
+
+.today-journey-page .live-indicator > span {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+background: #22c55e;
+box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+/* ---------------------------------------------------------
+OVERVIEW CARDS
+--------------------------------------------------------- */
+
+.today-journey-overview {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 16px;
+}
+
+.today-overview-card {
+min-height: 112px;
+padding: 19px;
+border-radius: 16px;
+display: flex;
+align-items: center;
+gap: 14px;
+border: 1px solid transparent;
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.today-overview-card:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 25px rgba(44, 35, 84, 0.08);
+}
+
+.today-overview-card > div:last-child {
+display: flex;
+flex-direction: column;
+min-width: 0;
+}
+
+.today-overview-card span {
+color: #817b98;
+font-size: 12px;
+font-weight: 650;
+margin-bottom: 3px;
+}
+
+.today-overview-card strong {
+color: #29253d;
+font-size: 18px;
+line-height: 1.3;
+}
+
+.today-overview-card small {
+color: #9892a9;
+font-size: 11px;
+margin-top: 3px;
+}
+
+.today-overview-icon {
+width: 46px;
+height: 46px;
+flex: 0 0 46px;
+border-radius: 13px;
+display: grid;
+place-items: center;
+}
+
+.overview-card-purple {
+background: #f5f2ff;
+border-color: #e6defd;
+}
+
+.overview-card-purple .today-overview-icon {
+background: #e9e2ff;
+color: #735dd0;
+}
+
+.overview-card-blue {
+background: #eff7ff;
+border-color: #dceeff;
+}
+
+.overview-card-blue .today-overview-icon {
+background: #dceeff;
+color: #3d82c7;
+}
+
+.overview-card-mint {
+background: #edfcf6;
+border-color: #d6f5e7;
+}
+
+.overview-card-mint .today-overview-icon {
+background: #d8f5e7;
+color: #2b9b70;
+}
+
+.overview-card-orange {
+background: #fff7ed;
+border-color: #ffead2;
+}
+
+.overview-card-orange .today-overview-icon {
+background: #ffead2;
+color: #d78335;
+}
+
+/* ---------------------------------------------------------
+TWO COLUMN SECTION
+--------------------------------------------------------- */
+
+.today-journey-page .dashboard-two-column {
+display: grid;
+grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+gap: 20px;
+}
+
+.today-journey-page .dashboard-panel {
+background: #ffffff;
+border: 1px solid #ebe8f5;
+border-radius: 18px;
+padding: 22px;
+box-shadow: 0 8px 25px rgba(44, 35, 84, 0.045);
+}
+
+.today-journey-page .panel-header {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+gap: 14px;
+margin-bottom: 20px;
+}
+
+.today-journey-page .panel-header > div:first-child {
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+
+.today-journey-page .panel-header span {
+color: #898399;
+font-size: 11px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.07em;
+}
+
+.today-journey-page .panel-header h2 {
+margin: 0;
+color: #2b273e;
+font-size: 19px;
+}
+
+/* ---------------------------------------------------------
+JOURNEY STOPS
+--------------------------------------------------------- */
+
+.route-progress-text {
+padding: 7px 11px;
+border-radius: 9px;
+background: #f3f0ff;
+color: #6757c8 !important;
+font-size: 12px !important;
+font-weight: 750 !important;
+text-transform: none !important;
+letter-spacing: 0 !important;
+}
+
+.journey-stops-list {
+display: flex;
+flex-direction: column;
+}
+
+.journey-stop-item {
+position: relative;
+display: grid;
+grid-template-columns: 38px minmax(0, 1fr) auto;
+gap: 12px;
+min-height: 68px;
+}
+
+.journey-stop-marker {
+width: 34px;
+height: 34px;
+margin-top: 2px;
+border-radius: 50%;
+display: grid;
+place-items: center;
+position: relative;
+z-index: 2;
+}
+
+.journey-stop-line {
+position: absolute;
+left: 16px;
+top: 36px;
+bottom: -2px;
+width: 2px;
+background: #e8e4f0;
+}
+
+.journey-stop-completed .journey-stop-marker {
+background: #e9f9f1;
+color: #229568;
+}
+
+.journey-stop-current .journey-stop-marker {
+background: #eeeaff;
+color: #6958cf;
+box-shadow: 0 0 0 5px rgba(105, 88, 207, 0.08);
+}
+
+.journey-stop-upcoming .journey-stop-marker {
+background: #f3f1f7;
+border: 2px solid #ddd9e7;
+}
+
+.journey-stop-upcoming .journey-stop-marker span {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #aaa4b5;
+}
+
+.journey-stop-content {
+display: flex;
+justify-content: space-between;
+gap: 12px;
+padding-bottom: 18px;
+}
+
+.journey-stop-content > div {
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+
+.journey-stop-content > div span {
+color: #9a94a9;
+font-size: 11px;
+font-weight: 650;
+}
+
+.journey-stop-content strong {
+color: #332f45;
+font-size: 14px;
+}
+
+.journey-stop-content time {
+color: #777187;
+font-size: 12px;
+font-weight: 700;
+white-space: nowrap;
+padding-top: 2px;
+}
+
+.journey-stop-current .journey-stop-content strong {
+color: #6555c8;
+}
+
+/* ---------------------------------------------------------
+DRIVER DETAILS
+--------------------------------------------------------- */
+
+.driver-safe-icon {
+width: 38px;
+height: 38px;
+border-radius: 11px;
+display: grid;
+place-items: center;
+background: #eafaf3;
+color: #26976c;
+}
+
+.today-driver-profile {
+display: flex;
+align-items: center;
+gap: 14px;
+padding: 4px 0 19px;
+border-bottom: 1px solid #efedf4;
+}
+
+.today-driver-avatar {
+width: 58px;
+height: 58px;
+flex: 0 0 58px;
+border-radius: 17px;
+display: grid;
+place-items: center;
+background: linear-gradient(135deg, #eee8ff, #dcd4ff);
+color: #6755c7;
+}
+
+.today-driver-profile h3 {
+margin: 0;
+color: #2d2940;
+font-size: 17px;
+}
+
+.today-driver-profile > div:last-child > span {
+display: block;
+color: #898399;
+font-size: 12px;
+margin-top: 2px;
+}
+
+.driver-rating {
+width: fit-content;
+display: inline-flex;
+align-items: center;
+gap: 5px;
+margin-top: 7px;
+padding: 5px 8px;
+border-radius: 7px;
+background: #edf9f4;
+color: #258b64;
+font-size: 10px;
+font-weight: 750;
+}
+
+.today-driver-details {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 12px;
+padding: 18px 0;
+}
+
+.today-driver-details > div {
+min-width: 0;
+display: grid;
+grid-template-columns: 20px 1fr;
+column-gap: 8px;
+row-gap: 2px;
+padding: 11px;
+border-radius: 11px;
+background: #faf9fc;
+}
+
+.today-driver-details svg {
+grid-row: span 2;
+color: #7566cc;
+margin-top: 2px;
+}
+
+.today-driver-details span {
+color: #9993a8;
+font-size: 10px;
+}
+
+.today-driver-details strong {
+color: #353044;
+font-size: 12px;
+}
+
+.driver-contact-actions {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+
+.driver-contact-actions button {
+min-height: 43px;
+border-radius: 11px;
+padding: 0 12px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 7px;
+border: 1px solid #ddd8f2;
+background: #f7f5ff;
+color: #6354bd;
+font-size: 12px;
+font-weight: 750;
+cursor: pointer;
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease,
+background 0.2s ease;
+}
+
+.driver-contact-actions button:hover {
+transform: translateY(-2px);
+background: #eeeaff;
+box-shadow: 0 7px 18px rgba(103, 87, 201, 0.13);
+}
+
+.driver-contact-actions button:last-child {
+border-color: #cfe6ff;
+background: #eef7ff;
+color: #397fc0;
+}
+
+.driver-contact-actions button:last-child:hover {
+background: #e2f1ff;
+box-shadow: 0 7px 18px rgba(61, 130, 199, 0.13);
+}
+
+/* ---------------------------------------------------------
+TIMELINE
+--------------------------------------------------------- */
+
+.today-timeline-panel {
+overflow: hidden;
+}
+
+.journey-date-label {
+padding: 7px 11px;
+border-radius: 9px;
+background: #f7f5fb;
+color: #777185 !important;
+font-size: 11px !important;
+font-weight: 650 !important;
+text-transform: none !important;
+letter-spacing: 0 !important;
+white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+BOARDING CARD
+--------------------------------------------------------- */
+
+.today-boarding-card {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+padding: 21px 23px;
+border: 1px solid #d9f0e5;
+border-radius: 17px;
+background: linear-gradient(135deg, #f2fcf7, #ffffff);
+box-shadow: 0 8px 24px rgba(35, 132, 91, 0.05);
+}
+
+.today-boarding-left {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.today-boarding-icon {
+width: 48px;
+height: 48px;
+flex: 0 0 48px;
+display: grid;
+place-items: center;
+border-radius: 14px;
+background: #dcf7e9;
+color: #259465;
+}
+
+.today-boarding-left > div:last-child {
+display: flex;
+flex-direction: column;
+}
+
+.today-boarding-left span {
+color: #298b65;
+font-size: 11px;
+font-weight: 750;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+}
+
+.today-boarding-left h2 {
+margin: 3px 0 2px;
+color: #2f3c36;
+font-size: 16px;
+}
+
+.today-boarding-left p {
+margin: 0;
+color: #7f8c85;
+font-size: 12px;
+}
+
+.today-boarding-time {
+display: flex;
+align-items: baseline;
+gap: 4px;
+padding: 9px 14px;
+border-radius: 11px;
+background: #ffffff;
+border: 1px solid #d9eee4;
+}
+
+.today-boarding-time strong {
+color: #278b62;
+font-size: 20px;
+}
+
+.today-boarding-time span {
+color: #5f796d;
+font-size: 11px;
+font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+ARRIVAL CARD
+--------------------------------------------------------- */
+
+.today-arrival-card {
+display: grid;
+grid-template-columns: auto minmax(0, 1fr) auto auto;
+align-items: center;
+gap: 16px;
+padding: 22px;
+border-radius: 17px;
+border: 1px solid #e8defb;
+background: linear-gradient(135deg, #faf7ff, #ffffff);
+box-shadow: 0 8px 25px rgba(91, 75, 183, 0.05);
+}
+
+.today-arrival-icon {
+width: 49px;
+height: 49px;
+display: grid;
+place-items: center;
+border-radius: 14px;
+background: #eee7ff;
+color: #6e5bc9;
+}
+
+.today-arrival-content span {
+color: #89829b;
+font-size: 11px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+}
+
+.today-arrival-content h2 {
+margin: 3px 0 2px;
+color: #302b43;
+font-size: 22px;
+}
+
+.today-arrival-content p {
+margin: 0;
+color: #8d8798;
+font-size: 12px;
+}
+
+.today-arrival-route {
+display: flex;
+align-items: center;
+gap: 9px;
+padding: 10px 13px;
+border-radius: 10px;
+background: #f7f5fc;
+color: #777184;
+font-size: 12px;
+}
+
+.today-arrival-route strong {
+color: #6252bc;
+}
+
+.today-arrival-status {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 9px 12px;
+border-radius: 999px;
+background: #eafaf2;
+color: #258b63;
+font-size: 11px;
+font-weight: 750;
+white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+SAFETY NOTICE
+--------------------------------------------------------- */
+
+.today-journey-page .parent-safety-notice {
+margin-top: 0;
+}
+
+/* ---------------------------------------------------------
+RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+.today-journey-overview {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.today-journey-page .dashboard-two-column {
+grid-template-columns: 1fr;
+}
+
+.today-arrival-card {
+grid-template-columns: auto minmax(0, 1fr);
+}
+
+.today-arrival-route {
+grid-column: 2;
+width: fit-content;
+}
+
+.today-arrival-status {
+grid-column: 2;
+width: fit-content;
+}
+}
+
+@media (max-width: 800px) {
+.today-journey-page .page-header {
+flex-direction: column;
+}
+
+.today-journey-page .page-header-actions {
+width: 100%;
+justify-content: flex-start;
+}
+
+.today-journey-page .page-header-actions button {
+flex: 1;
+}
+
+.today-journey-page .dashboard-section,
+.today-journey-page .dashboard-panel {
+padding: 18px;
+}
+
+.today-boarding-card {
+align-items: flex-start;
+}
+}
+
+@media (max-width: 600px) {
+.today-journey-page {
+gap: 16px;
+}
+
+.today-journey-overview {
+grid-template-columns: 1fr;
+gap: 12px;
+}
+
+.today-overview-card {
+min-height: 92px;
+}
+
+.today-journey-page .section-heading,
+.today-journey-page .panel-header {
+align-items: flex-start;
+}
+
+.today-journey-page .section-heading {
+flex-direction: column;
+}
+
+.today-journey-page .live-indicator {
+align-self: flex-start;
+}
+
+.today-driver-details {
+grid-template-columns: 1fr;
+}
+
+.driver-contact-actions {
+grid-template-columns: 1fr;
+}
+
+.today-boarding-card {
+flex-direction: column;
+padding: 18px;
+}
+
+.today-boarding-time {
+align-self: flex-start;
+}
+
+.today-arrival-card {
+grid-template-columns: auto minmax(0, 1fr);
+padding: 18px;
+}
+
+.today-arrival-route,
+.today-arrival-status {
+grid-column: 1 / -1;
+}
+
+.today-arrival-route {
+width: 100%;
+justify-content: center;
+}
+
+.today-arrival-status {
+width: fit-content;
+}
+}
+
+@media (max-width: 480px) {
+.today-journey-page .page-header-actions {
+flex-direction: column;
+}
+
+.today-journey-page .page-header-actions button {
+width: 100%;
+flex: none;
+}
+
+.today-journey-page .dashboard-section,
+.today-journey-page .dashboard-panel {
+padding: 15px;
+border-radius: 15px;
+}
+
+.today-journey-page .section-heading h2,
+.today-journey-page .panel-header h2 {
+font-size: 17px;
+}
+
+.journey-stop-item {
+grid-template-columns: 34px minmax(0, 1fr);
+gap: 9px;
+}
+
+.journey-stop-marker {
+width: 30px;
+height: 30px;
+}
+
+.journey-stop-line {
+left: 14px;
+}
+
+.journey-stop-content {
+padding-bottom: 16px;
+}
+
+.journey-stop-content time {
+grid-column: 2;
+margin-top: 2px;
+}
+
+.today-arrival-icon {
+width: 43px;
+height: 43px;
+}
+
+.today-arrival-content h2 {
+font-size: 19px;
+}
+
+.today-arrival-route {
+font-size: 11px;
+}
+}
